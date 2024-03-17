@@ -1,0 +1,6 @@
+SETUP:
+
+-UxPlay installieren
+-Pulseaudio installieren
+
+COMMAND: uxplay -n NAME -nh (-bt709)
