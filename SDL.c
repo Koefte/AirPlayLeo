@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Create a window
-    SDL_Window* window = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, SDL_WINDOW_SHOWN);
     if (window == NULL) {
         printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
         TTF_Quit();
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 		SDL_ShowCursor(SDL_DISABLE);
 
     // Load a system font
-    TTF_Font* font = TTF_OpenFont(NULL, 24); // NULL loads the default font with size 24
+    TTF_Font* font = TTF_OpenFont("WorkSans-Regular.ttf", 24); // NULL loads the default font with size 24
     if (font == NULL) {
         printf("Failed to load font: %s\n", TTF_GetError());
         SDL_DestroyRenderer(renderer);
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Create text surface
-    SDL_Color color = {255, 255, 255}; // White color
+    SDL_Color color = {0, 0, 0}; // White color
     SDL_Surface* textSurface = TTF_RenderText_Blended(font, "Hello, SDL!", color);
     if (textSurface == NULL) {
         printf("Failed to render text: %s\n", TTF_GetError());
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Clear the screen
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black color
+    SDL_SetRenderDrawColor(renderer, 255,255, 255, 255); // Black color
     SDL_RenderClear(renderer);
 
     // Render texture
