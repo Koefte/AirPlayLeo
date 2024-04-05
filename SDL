@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
+    SDL_ShowCursor(SDL_DISABLE);
 
     // Clear the screen
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -34,7 +35,7 @@ int main(int argc, char* argv[]) {
     // Wait for user to close the window
     SDL_Event event;
     while (SDL_WaitEvent(&event)) {
-        if (event.type == SDL_QUIT) {
+        if (event.type == SDL_KEYDOWN) {
             break;
         }
     }
