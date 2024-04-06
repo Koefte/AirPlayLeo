@@ -2,6 +2,40 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdbool.h>
 
+void renderText(SDL_Renderer* renderer, TTF_Font* font, const char* text, int x, int y, int fontSize) {
+    // Set text color
+    SDL_Color color = {0, 0, 0, 255}; // Black color
+
+    // Render text surface
+    SDL_Surface* textSurface = TTF_RenderText_Blended(font, text, color);
+    if (textSurface == NULL) {
+        printf("Failed to render text: %s\n", TTF_GetError());
+        return;
+    }
+
+    // Create texture from surface
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    SDL_FreeSurface(textSurface);
+    if (textTexture == NULL) {
+        printf("Failed to create texture: %s\n", SDL_GetError());
+        return;
+    }
+
+    // Query texture size
+    int textWidth, textHeight;
+    SDL_QueryTexture(textTexture, NULL, NULL, &textWidth, &textHeight);
+
+    // Set destination rectangle
+    SDL_Rect dstRect = { x, y, textWidth, textHeight };
+
+    // Render texture
+    SDL_RenderCopy(renderer, textTexture, NULL, &dstRect);
+
+    // Clean up texture
+    SDL_DestroyTexture(textTexture);
+}
+
+
 int main(int argc, char* argv[]) {
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0 || TTF_Init() != 0) {
