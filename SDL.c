@@ -73,41 +73,14 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
-
-    // Create text surface
-    SDL_Color color = {0, 0, 0}; // White color
-    SDL_Surface* textSurface = TTF_RenderText_Blended(font, "Hello, SDL!", color);
-    if (textSurface == NULL) {
-        printf("Failed to render text: %s\n", TTF_GetError());
-        TTF_CloseFont(font);
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        TTF_Quit();
-        SDL_Quit();
-        return 1;
-    }
-
-    // Create texture from surface
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, textSurface);
-    SDL_FreeSurface(textSurface); // Free the surface as it's no longer needed
-    if (texture == NULL) {
-        printf("Failed to create texture: %s\n", SDL_GetError());
-        TTF_CloseFont(font);
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        TTF_Quit();
-        SDL_Quit();
-        return 1;
-    }
+    
+    
 
     // Clear the screen
     SDL_SetRenderDrawColor(renderer, 255,255, 255, 255); // Black color
     SDL_RenderClear(renderer);
 
-    // Render texture
-    SDL_Rect dstRect = {100, 100, 0, 0}; // Position of the text
-    SDL_QueryTexture(texture, NULL, NULL, &dstRect.w, &dstRect.h);
-    SDL_RenderCopy(renderer, texture, NULL, &dstRect);
+	renderText(renderer,font,"Hello SDL",500,500)
 
     // Present the renderer
     SDL_RenderPresent(renderer);
