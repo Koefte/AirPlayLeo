@@ -96,7 +96,6 @@ int main(int argc, char* argv[]) {
 
     // Clean up resources
     SDL_DestroyTexture(texture);
-    TTF_CloseFont(font);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_Quit();
