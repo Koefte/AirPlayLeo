@@ -2,10 +2,18 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdbool.h>
 
-void renderText(SDL_Renderer* renderer, TTF_Font* font, const char* text, int x, int y, int fontSize) {
+void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize) {
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
 
+	    // Load a system font
+    TTF_Font* font = TTF_OpenFont("WorkSans-Regular.ttf", 24); // NULL loads the default font with size 24
+    if (font == NULL) {
+        printf("Failed to load font: %s\n", TTF_GetError());
+        return;
+    }
+    
+    
     // Render text surface
     SDL_Surface* textSurface = TTF_RenderText_Blended(font, text, color);
     if (textSurface == NULL) {
@@ -33,6 +41,7 @@ void renderText(SDL_Renderer* renderer, TTF_Font* font, const char* text, int x,
 
     // Clean up texture
     SDL_DestroyTexture(textTexture);
+    TTF_CloseFont(font);
 }
 
 
@@ -61,26 +70,15 @@ int main(int argc, char* argv[]) {
         SDL_Quit();
         return 1;
     }
-		SDL_ShowCursor(SDL_DISABLE);
+	SDL_ShowCursor(SDL_DISABLE);
 
-    // Load a system font
-    TTF_Font* font = TTF_OpenFont("WorkSans-Regular.ttf", 24); // NULL loads the default font with size 24
-    if (font == NULL) {
-        printf("Failed to load font: %s\n", TTF_GetError());
-        SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
-        TTF_Quit();
-        SDL_Quit();
-        return 1;
-    }
-    
-    
+
 
     // Clear the screen
     SDL_SetRenderDrawColor(renderer, 255,255, 255, 255); // Black color
     SDL_RenderClear(renderer);
 
-	renderText(renderer,font,"Hello SDL",500,500)
+	renderText(renderer,"Hello SDL",500,500)
 
     // Present the renderer
     SDL_RenderPresent(renderer);
