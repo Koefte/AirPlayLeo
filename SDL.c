@@ -108,7 +108,6 @@ int main(int argc, char* argv[]) {
     }
 
     // Clean up resources
-    SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_Quit();
