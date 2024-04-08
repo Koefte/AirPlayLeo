@@ -9,7 +9,7 @@ json_t* loadJson(const char* filename) {
         return NULL;
     }
 
-    json_t *root = json_loadf(file, 0);
+    json_t *root = json_loadf(file, 0,NULL);
     fclose(file);
 
     return root;
