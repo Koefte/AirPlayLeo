@@ -85,9 +85,9 @@ int main(int argc, char* argv[]) {
     SDL_SetRenderDrawColor(renderer, 255,255, 255, 255); // Black color
     SDL_RenderClear(renderer);
 
-	renderText(renderer,"Hello SDL",500,500,64);
+	renderText(renderer,"Hello SDL",500,500,64,false);
 
-    // Present the renderer
+    //  mPresent the renderer
     SDL_RenderPresent(renderer);
 
     // Main loop
