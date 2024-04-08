@@ -15,7 +15,7 @@ json_t* loadJson(const char* filename) {
     return root;
 }
 
-void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize) {
+void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize,bool centered) {
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
 
@@ -45,6 +45,11 @@ void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontS
     // Query texture size
     int textWidth, textHeight;
     SDL_QueryTexture(textTexture, NULL, NULL, &textWidth, &textHeight);
+    
+    if(centered){
+        x = (1920 - textWidth)  / 2;
+        y = (1080 - textHeight) / 2;
+    }
 
     // Set destination rectangle
     SDL_Rect dstRect = { x, y, textWidth, textHeight };
