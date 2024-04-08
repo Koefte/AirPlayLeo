@@ -1,19 +1,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <stdbool.h>
-#include <jansson.h>
 
-json_t* loadJson(const char* filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        return NULL;
-    }
 
-    json_t *root = json_loadf(file, 0,NULL);
-    fclose(file);
-
-    return root;
-}
 
 void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize,bool centered) {
     // Set text color
