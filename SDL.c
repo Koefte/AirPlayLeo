@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) {
     SDL_Event event;
     while (!quit) {
         while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_KEYDOWN) {
+            if (event.type == SDL_KEYDOWN || event.type == SDL_QUIT) {
                 quit = true;
             }
         }
