@@ -7,13 +7,6 @@
 void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize,bool centered) {
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
-
-	    // Load a system font
-    TTF_Font* font = TTF_OpenFont("WorkSans-Regular.ttf", fontSize); // NULL loads the default font with size 24
-    if (font == NULL) {
-        printf("Failed to load font: %s\n", TTF_GetError());
-        return;
-    }
     
     
     // Render text surface
