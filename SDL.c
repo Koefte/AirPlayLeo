@@ -8,7 +8,11 @@ void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontS
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
     
-    
+    TTF_Font* font = TTF_OpenFont("WorkSans-Regular.ttf",fontSize);
+    if(font == NULL){
+    	printf("Failed to open font: %s \n",TTF_GetError());
+	return;
+    }
     // Render text surface
     SDL_Surface* textSurface = TTF_RenderText_Blended(font, text, color);
     if (textSurface == NULL) {
@@ -44,6 +48,35 @@ void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontS
     TTF_CloseFont(font);
 }
 
+SDL_Window*  initWindow(int width,int height){
+	SDL_Window* window = SDL_CreateWindow("SDL Window",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,width,height,SDL_WINDOW_SHOWN);
+        if (window == NULL) {
+	        printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
+	        TTF_Quit();
+	        SDL_Quit();
+	        return NULL;
+	}
+	return window;
+
+}
+
+SDL_Renderer* initRenderer(SDL_Window* window){
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (renderer == NULL) {
+        printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
+        SDL_DestroyWindow(window);
+        TTF_Quit();
+        SDL_Quit();
+        return NULL;
+    }
+    return renderer;
+
+}
+
+void clearScreen(SDL_Renderer* renderer,int r,int g,int b,int alpha){
+	SDL_SetRenderDrawColor(renderer,r,g,b,alpha);
+	SDL_RenderClear(renderer);
+}
 
 int main(int argc, char* argv[]) {
     // Initialize SDL
@@ -53,30 +86,15 @@ int main(int argc, char* argv[]) {
     }
 
     // Create a window
-    SDL_Window* window = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, SDL_WINDOW_SHOWN);
-    if (window == NULL) {
-        printf("SDL_CreateWindow Error: %s\n", SDL_GetError());
-        TTF_Quit();
-        SDL_Quit();
-        return 1;
-    }
-
+    SDL_Window* window = initWindow(1920,1080);
     // Create a renderer
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (renderer == NULL) {
-        printf("SDL_CreateRenderer Error: %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
-        TTF_Quit();
-        SDL_Quit();
-        return 1;
-    }
-	SDL_ShowCursor(SDL_DISABLE);
+    SDL_Renderer* renderer = initRenderer(window);
+    SDL_ShowCursor(SDL_DISABLE);
 
 
 
     // Clear the screen
-    SDL_SetRenderDrawColor(renderer, 255,255, 255, 255); // Black color
-    SDL_RenderClear(renderer);
+    clearScreen(renderer,255,255,255,255);
 
 	renderText(renderer,"Hello SDL",500,500,64,false);
 
