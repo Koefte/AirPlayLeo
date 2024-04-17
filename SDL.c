@@ -3,7 +3,6 @@
 #include <stdbool.h>
 
 
-
 void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize,bool centered) {
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
@@ -78,25 +77,33 @@ void clearScreen(SDL_Renderer* renderer,int r,int g,int b,int alpha){
 	SDL_RenderClear(renderer);
 }
 
-int main(int argc, char* argv[]) {
-    // Initialize SDL
+void init(){
     if (SDL_Init(SDL_INIT_VIDEO) != 0 || TTF_Init() != 0) {
         printf("SDL or SDL_ttf initialization error: %s\n", SDL_GetError());
-        return 1;
     }
 
+}
+
+void destroy(){
+    TTF_Quit();
+    SDL_Quit();
+}
+
+int main(int argc, char* argv[]) {
+    // Initialize SDL
+    init();
     // Create a window
     SDL_Window* window = initWindow(1920,1080);
     // Create a renderer
     SDL_Renderer* renderer = initRenderer(window);
-    SDL_ShowCursor(SDL_DISABLE);
+   
 
 
 
     // Clear the screen
     clearScreen(renderer,255,255,255,255);
-
-	renderText(renderer,"Hello SDL",500,500,64,false);
+    SDL_ShowCursor(SDL_DISABLE);
+    renderText(renderer,"Hello SDL",500,500,64,true);
 
     //  mPresent the renderer
     SDL_RenderPresent(renderer);
@@ -113,10 +120,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Clean up resources
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    TTF_Quit();
-    SDL_Quit();
-
+    destroy();
     return 0;
 }
+
