@@ -2,7 +2,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <stdbool.h>
 
-
+static bool isDestroyed = false;
 void renderText(SDL_Renderer* renderer,const char* text, int x, int y, int fontSize,bool centered) {
     // Set text color
     SDL_Color color = {0, 0, 0, 255}; // Black color
@@ -84,43 +84,14 @@ void init(){
 
 }
 
-void destroy(){
-    TTF_Quit();
-    SDL_Quit();
+void destroy(SDL_Renderer *renderer,SDL_Window *window){
+	if(!isDestroyed){
+	    SDL_DestroyRenderer(renderer);
+	    SDL_DestroyWindow(window);
+	    TTF_Quit();
+	    SDL_Quit();
+	}
+	isDestroyed = false;
 }
 
-int main(int argc, char* argv[]) {
-    // Initialize SDL
-    init();
-    // Create a window
-    SDL_Window* window = initWindow(1920,1080);
-    // Create a renderer
-    SDL_Renderer* renderer = initRenderer(window);
-   
-
-
-
-    // Clear the screen
-    clearScreen(renderer,255,255,255,255);
-    SDL_ShowCursor(SDL_DISABLE);
-    renderText(renderer,"Hello SDL",500,500,64,true);
-
-    //  mPresent the renderer
-    SDL_RenderPresent(renderer);
-
-    // Main loop
-    bool quit = false;
-    SDL_Event event;
-    while (!quit) {
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_KEYDOWN || event.type == SDL_QUIT) {
-                quit = true;
-            }
-        }
-    }
-
-    // Clean up resources
-    destroy();
-    return 0;
-}
 
