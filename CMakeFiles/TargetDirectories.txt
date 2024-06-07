@@ -1,0 +1,3 @@
+/home/pi/AirPlayLeo/CMakeFiles/leoplay.dir
+/home/pi/AirPlayLeo/CMakeFiles/edit_cache.dir
+/home/pi/AirPlayLeo/CMakeFiles/rebuild_cache.dir
