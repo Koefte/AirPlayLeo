@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/AirPlayLeo
+CMAKE_SOURCE_DIR = /home/kys/AirPlayLeo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/AirPlayLeo
+CMAKE_BINARY_DIR = /home/kys/AirPlayLeo
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/AirPlayLeo/CMakeFiles /home/pi/AirPlayLeo//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kys/AirPlayLeo/CMakeFiles /home/kys/AirPlayLeo//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/AirPlayLeo/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kys/AirPlayLeo/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ leoplay/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/build
 .PHONY : leoplay/fast
 
-g-overlay-test.o: g-overlay-test.cpp.o
-.PHONY : g-overlay-test.o
+leoplay.o: leoplay.cpp.o
+.PHONY : leoplay.o
 
 # target to build an object file
-g-overlay-test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/g-overlay-test.cpp.o
-.PHONY : g-overlay-test.cpp.o
+leoplay.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/leoplay.cpp.o
+.PHONY : leoplay.cpp.o
 
-g-overlay-test.i: g-overlay-test.cpp.i
-.PHONY : g-overlay-test.i
+leoplay.i: leoplay.cpp.i
+.PHONY : leoplay.i
 
 # target to preprocess a source file
-g-overlay-test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/g-overlay-test.cpp.i
-.PHONY : g-overlay-test.cpp.i
+leoplay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/leoplay.cpp.i
+.PHONY : leoplay.cpp.i
 
-g-overlay-test.s: g-overlay-test.cpp.s
-.PHONY : g-overlay-test.s
+leoplay.s: leoplay.cpp.s
+.PHONY : leoplay.s
 
 # target to generate assembly for a file
-g-overlay-test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/g-overlay-test.cpp.s
-.PHONY : g-overlay-test.cpp.s
+leoplay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/leoplay.dir/build.make CMakeFiles/leoplay.dir/leoplay.cpp.s
+.PHONY : leoplay.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... leoplay"
-	@echo "... g-overlay-test.o"
-	@echo "... g-overlay-test.i"
-	@echo "... g-overlay-test.s"
+	@echo "... leoplay.o"
+	@echo "... leoplay.i"
+	@echo "... leoplay.s"
 .PHONY : help
 
 

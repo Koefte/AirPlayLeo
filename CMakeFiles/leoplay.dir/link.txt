@@ -1,1 +1,1 @@
-/usr/bin/c++ "CMakeFiles/leoplay.dir/g-overlay-test.cpp.o" -o leoplay  -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 /usr/lib/aarch64-linux-gnu/libfmt.so.9.1.0 
+/usr/bin/c++ CMakeFiles/leoplay.dir/leoplay.cpp.o -o leoplay  -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 /usr/lib/arm-linux-gnueabihf/libfmt.so.9.1.0 

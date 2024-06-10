@@ -12,7 +12,7 @@ pkg_check_modules(GST REQUIRED gstreamer-1.0)
 include_directories(${GST_INCLUDE_DIRS})
 
 set(SOURCES
-	g-overlay-test.cpp
+	leoplay.cpp
 	cfgparse.h
 )
 

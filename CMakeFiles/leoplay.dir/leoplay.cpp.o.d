@@ -1,7 +1,7 @@
-CMakeFiles/leoplay.dir/g-overlay-test.cpp.o: \
- /home/kys/AirPlayLeo/g-overlay-test.cpp /usr/include/stdc-predef.h \
- /usr/include/gstreamer-1.0/gst/gst.h /usr/include/glib-2.0/glib.h \
- /usr/include/glib-2.0/glib/galloca.h /usr/include/glib-2.0/glib/gtypes.h \
+CMakeFiles/leoplay.dir/leoplay.cpp.o: /home/kys/AirPlayLeo/leoplay.cpp \
+ /usr/include/stdc-predef.h /usr/include/gstreamer-1.0/gst/gst.h \
+ /usr/include/glib-2.0/glib.h /usr/include/glib-2.0/glib/galloca.h \
+ /usr/include/glib-2.0/glib/gtypes.h \
  /usr/lib/arm-linux-gnueabihf/glib-2.0/include/glibconfig.h \
  /usr/include/glib-2.0/glib/gmacros.h \
  /usr/lib/gcc/arm-linux-gnueabihf/12/include/stddef.h \

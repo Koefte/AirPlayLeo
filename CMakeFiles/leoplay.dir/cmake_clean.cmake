@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/leoplay.dir/g-overlay-test.cpp.o"
-  "CMakeFiles/leoplay.dir/g-overlay-test.cpp.o.d"
+  "CMakeFiles/leoplay.dir/leoplay.cpp.o"
+  "CMakeFiles/leoplay.dir/leoplay.cpp.o.d"
   "leoplay"
   "leoplay.pdb"
 )
