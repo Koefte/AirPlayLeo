@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kys/AirPlayLeo/leoplay.cpp" "CMakeFiles/leoplay.dir/leoplay.cpp.o" "gcc" "CMakeFiles/leoplay.dir/leoplay.cpp.o.d"
+  "/home/pi/AirPlayLeo/leoplay.cpp" "CMakeFiles/leoplay.dir/leoplay.cpp.o" "gcc" "CMakeFiles/leoplay.dir/leoplay.cpp.o.d"
   )
 
 # Targets to which this target links.

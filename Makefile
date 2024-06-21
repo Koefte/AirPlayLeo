@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kys/AirPlayLeo
+CMAKE_SOURCE_DIR = /home/pi/AirPlayLeo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kys/AirPlayLeo
+CMAKE_BINARY_DIR = /home/pi/AirPlayLeo
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kys/AirPlayLeo/CMakeFiles /home/kys/AirPlayLeo//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/AirPlayLeo/CMakeFiles /home/pi/AirPlayLeo//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kys/AirPlayLeo/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/AirPlayLeo/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
