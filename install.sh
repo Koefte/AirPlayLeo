@@ -7,7 +7,7 @@ git clone https://github.com/FDH2/UxPlay
 
 cd UxPlay
 mkdir build
-cd bvild
+cd build
 cmake ..
 make
 make install
