@@ -6,6 +6,14 @@ function build {
     make
 }
 
+function run {
+	./leoplay    
+}
+
+echo -e '\e[?25l'
+
+cd "/home/pi/AirPlayLeo"
+
 echo "LeoPlay updater 0.1"
 
 echo "Checking update information..."
@@ -27,7 +35,7 @@ elif [ "$LOCAL_COMMIT" = "$BASE_COMMIT" ]; then
     git pull origin "$BRANCH"
     if [ $? -eq 0 ]; then
         echo "Update successful."
-        #build (uncomment in release)
+        build
     else
         echo "Error while pulling."
         exit 1
@@ -49,3 +57,5 @@ else
     exit 3
     # Problem.
 fi
+
+run
